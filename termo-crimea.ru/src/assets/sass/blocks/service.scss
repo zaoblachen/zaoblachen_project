@@ -1,0 +1,254 @@
+.service {
+
+    &__container {
+        width: 70%;
+        text-align: center;
+
+        padding: 30px 0;
+
+        height: 520px;
+    }
+
+    &__title {
+        display: block;
+        width: 60%;
+
+        padding-bottom: 20px;
+        margin: 0px auto;
+
+        line-height: 1.4;
+    }
+
+    &__subtitle {
+        display: block;
+        padding-bottom: 40px;
+    }
+}
+
+
+.service-block {
+    display: flex;
+    padding: 2rem 0 3rem;
+}
+
+.service-b1 {
+
+    flex-direction: column;
+    text-align: left;
+
+    .tab__btn {
+
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+
+        cursor: pointer;
+
+        font-size: 1.1rem;
+
+        padding: 8px;
+        margin: 2px 5px;
+
+        color: $grey;
+
+    }
+
+
+    a:hover {
+
+        margin: 2px 5px;
+        border-left: 3px solid $gold;
+
+        color: $black;
+
+        transition: .5s;
+    }
+
+    a:focus {
+        background-color: rgb(243, 160, 34, .3);
+        color: $black;
+        margin: 2px 5px;
+        border-left: 6px solid $gold;
+    }
+
+    a:active {
+        background-color: rgb(243, 160, 34, .7);
+        transition: .1s;
+    }
+
+    a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: .7s;
+    }
+
+    a::before {
+        background: linear-gradient(90deg, transparent, $white, transparent);
+    }
+
+    a:focus::before {
+        left: 100%;
+    }
+}
+
+
+.service-b2 {
+
+    display: flex;
+    flex: 1 0 50%;
+
+    &>div {
+        position: absolute;
+        top: -200%;
+        opacity: 0;
+        transform: scale(.9);
+        transition: opacity .5s ease-in-out 0ms,
+            transform .5s ease-in-out 0ms;
+    }
+
+    &>div.active {
+        position: relative;
+        z-index: 5;
+        top: 0;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .service__button {
+        //вложенная кнопка
+
+        padding: 7px 30px;
+        margin: 10px 0 10px;
+
+        background-color: $gold;
+        border-width: 0px;
+        border-radius: $big-radius;
+
+        font-weight: 500;
+
+    }
+}
+
+.block {
+
+    //margin: 0 auto;
+
+    &__item {
+        // div с кнопкой и вложенным внутрь
+
+
+        p {
+            width: 300px;
+
+            margin: 0 20px 0;
+
+            font-size: .9rem;
+            text-align: justify;
+            line-height: 130%;
+        }
+
+    }
+
+    &__title {
+
+        // кнопка разорчивает div
+
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+        background-color: transparent;
+        border-radius: 0;
+        border-width: 0;
+
+        padding: 8px;
+        margin: 2px 5px;
+
+        color: $grey;
+        font-size: 1.1rem;
+        font-weight: 500;
+        text-align: left;
+        line-height: 1.15;
+
+    }
+
+    &__title:first-child:hover {
+
+        border-left: 3px solid $gold;
+        box-sizing: border-box;
+        color: $black;
+
+        transition: .5s;
+    }
+
+    &__title:first-child:focus {
+        background-color: rgb(243, 160, 34, .3);
+        color: $black;
+        margin: 2px 5px;
+        border-left: 6px solid $gold;
+    }
+
+    &__title:first-child:active {
+        background-color: rgb(243, 160, 34, .7);
+        transition: .1s;
+    }
+
+
+    &__title:first-child::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: .7s;
+    }
+
+    &__title:first-child::before {
+        background: linear-gradient(90deg, transparent, $white, transparent);
+    }
+
+    &__title:first-child:focus::before {
+        left: 100%;
+    }
+
+
+    &._init .block__title {
+        cursor: pointer;
+        padding: 10px 40px 10px 10px;
+    }
+
+    &._init .block__title::before,
+    &._init .block__title::after {
+        content: "";
+        width: 20px;
+        height: 1px;
+        background-color: $white;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+        transition: transform .3s ease 0s;
+    }
+
+    &._init .block__title::after {
+        transform: rotate(-90deg);
+    }
+
+    &._init .block__title._active::after {
+        transform: rotate(0deg);
+    }
+
+}
+
+// класс навешиваемый по default
+
+._active {
+    background-color: rgb(243, 160, 34, .3);
+    color: $black;
+    margin: 2px 5px;
+    border-left: 6px solid $gold;
+}

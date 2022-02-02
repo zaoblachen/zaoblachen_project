@@ -1,0 +1,105 @@
+ .footer {
+
+     background-color: $black;
+
+
+     &__container {
+
+         color: $white;
+         height: 330px;
+     }
+
+     &__content {
+
+         display: flex;
+         justify-content: space-between;
+
+         background-color: $black;
+         width: 100%;
+     }
+ }
+
+ .footer-1b {
+
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     align-items: center;
+     justify-content: center;
+
+     &__logo {
+         display: block;
+         padding-bottom: 1.2rem;
+         white-space: nowrap;
+         font-size: 1.5rem;
+     }
+
+     &__description {
+         display: inline-block;
+         width: 200px;
+         line-height: 1.2rem;
+         font-weight: 400;
+     }
+ }
+
+ .footer-2b {
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+     &__list {
+         color: inherit;
+
+         a {
+             color: inherit;
+             text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+             transition: text-decoration-color 300ms;
+         }
+
+         a:hover {
+             text-decoration-color: $gold;
+         }
+     }
+
+     &__title {
+         font-size: 1.25rem;
+         padding-bottom: 1.5rem;
+     }
+
+     &__sublist {
+         color: inherit;
+     }
+
+     &__link {
+         color: $white;
+         font-weight: 400;
+         line-height: 1.5;
+     }
+ }
+
+ .footer-3b {
+
+     display: inline-block;
+
+     &__contacts {
+         line-height: 1.6rem;
+         font-size: .8rem;
+     }
+
+ }
+
+/*  .btn__footer {
+     @include btn__blue();
+ }
+ */
+
+ .rights {
+
+     display: block;
+
+     &__text {
+         padding-top: 20px;
+         color: inherit;
+     }
+ }

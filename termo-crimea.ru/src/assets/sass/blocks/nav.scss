@@ -1,0 +1,121 @@
+.nav {
+
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 85px;
+
+    &__content {
+        max-width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        box-sizing: content-box;
+
+        padding: 10px 0 0;
+        margin: 0 auto;
+    }
+}
+
+.menu {
+
+    a {
+        display: inline-block;
+        position: relative;
+        z-index: 5;
+        overflow: hidden;
+        cursor: pointer;
+
+        padding: 3px 3px;
+        margin: 2px 5px;
+        border-radius: $micro-radius;
+
+        color: $white;
+        font-size: .9rem;
+
+        transition: .7s;
+    }
+
+    a:hover {
+        //border: 1px solid $blue;
+        color: $white;
+    }
+
+    a:focus {
+        background-color: $blue;
+        color: $black;
+    }
+
+    a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: .7s;
+    }
+
+    a::before {
+        background: linear-gradient(-45deg, transparent, $white, transparent);
+    }
+
+    a:hover::before {
+        left: 100%;
+    }
+}
+
+.email {
+
+    a {
+        font-size: .9rem;
+        color: white;
+        position: relative;
+        cursor: pointer;
+        text-decoration: none;
+        /*убираем подчёркивание*/
+
+    }
+
+    a:after {
+        display: block;
+        position: absolute;
+        left: 0;
+        /*изменить на right:0;, чтобы изменить направление подчёркивания */
+        width: 0;
+        /*задаём длинну линии до наведения курсора*/
+        height: 2px;
+        /*задаём ширину линии*/
+        background-color: $blue;
+        /*задаём цвет линии*/
+        content: "";
+        transition: width 0.3s ease-out;
+        /*задаём время анимации*/
+        margin-top: 2px; // задаем отступ линии от текста (вниз)
+
+    }
+
+    a:hover:after,
+    a:focus:after {
+        width: 100%;
+        /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+        margin-top: 2px; // задаем отступ линии от текста (вниз)
+    }
+}
+
+.phone {
+
+    &__link {
+        display: block;
+
+        cursor: default;
+
+        padding: 5px 0;
+
+        color: $white;
+        white-space: nowrap;
+    }
+}
