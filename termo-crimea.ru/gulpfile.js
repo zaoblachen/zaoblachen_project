@@ -9,6 +9,7 @@ const cssnano = require("gulp-cssnano");
 const rigger = require("gulp-rigger");
 const uglify = require("gulp-uglify");
 const plumber = require("gulp-plumber");
+const imagemin = require("gulp-imagemin");
 //import imagemin from "gulp-imagemin"
 //https://qna.habr.com/q/1048726
 const del = require("del");
@@ -104,11 +105,11 @@ function js() {
     .pipe(browsersync.stream());
 }
 
-//function images() {
-//  return src(path.src.images)
-//    .pipe(imagemin())
-//    .pipe(dest(path.build.images));
-//}
+function images() {
+  return src(path.src.images)
+    //.pipe(imagemin())
+    .pipe(dest(path.build.images));
+}
 
 function clean() {
   return del(path.clean);
@@ -118,16 +119,16 @@ function watchFiles() {
   gulp.watch([path.watch.html], html);
   gulp.watch([path.watch.css], css);
   gulp.watch([path.watch.js], js);
-  //  gulp.watch([path.watch.images], images);
+  gulp.watch([path.watch.images], images);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js)); //+images
+const build = gulp.series(clean, gulp.parallel(html, css, js, images));
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;
 exports.css = css;
 exports.js = js;
-//exports.images = images;
+exports.images = images;
 exports.clean = clean;
 exports.build = build;
 exports.watch = watch;
