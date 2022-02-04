@@ -1,0 +1,160 @@
+.contacts__container {
+  height: 100vh;
+  width: 70%;
+  text-align: center;
+
+}
+
+h3 {
+  display: block;
+  width: 60%;
+
+  padding-bottom: 10px;
+  margin: 0px auto;
+
+
+}
+
+h4 {
+  display: block;
+  padding-bottom: 15px;
+
+  line-height: 1.4;
+}
+
+
+.both__sides {
+  display: flex;
+}
+
+.left-side {
+  width: 25%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    background: #afafb6;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+.right-side {
+  width: 55%;
+  margin-left: 75px;
+}
+
+.details {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.details i {
+  font-size: 15px;
+  color: #3e2093;
+  margin-bottom: 10px;
+}
+
+.topic {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 7px;
+  color: $black;
+  line-height: 130%;
+}
+
+.right-side p {
+  margin-bottom: 20px;
+}
+
+.input-box {
+  height: 35px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-box input,
+.input-box textarea {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: #f0f1f8;
+  padding: 0 20px;
+  margin-bottom: 2px;
+
+}
+
+.input-box label {
+  font-size: .9rem;
+  color: $grey;
+  padding-left: 5px;
+}
+
+.input-box textarea {
+  resize: none;
+  padding: 20px;
+}
+
+.message-box {
+  min-height: 80px;
+}
+
+.button {
+  display: inline-block;
+}
+
+.button input[type="submit"] {
+  color: #fff;
+  font-size: 18px;
+  background: #3e2093;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  transition: 0.2s;
+}
+
+.button input[type="submit"]:hover {
+  background: rgb(0, 0, 207);
+}
+
+@media (max-width: 800px) {
+  .content {
+    height: 100%;
+    flex-direction: column-reverse;
+  }
+
+  .left-side {
+    margin-top: 50px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .details {
+    margin-right: 20px;
+  }
+
+  .details:last-child {
+    margin-right: 0;
+  }
+
+  .left-side::before {
+    display: none;
+  }
+
+  .right-side {
+    width: 100%;
+    margin-left: 0;
+  }
+}

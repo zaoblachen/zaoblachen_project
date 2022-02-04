@@ -1,0 +1,139 @@
+.objects__content {
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.objects__slider {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 20px;
+
+
+
+    a {
+        display: inline-block;
+        position: relative;
+        z-index: 5;
+        overflow: hidden;
+        cursor: pointer;
+
+        height: 100%;
+
+        padding: 5px 15px;
+        background-color: rgb(183, 156, 218, .2);
+
+        color: $grey;
+
+        transition: .7s;
+    }
+
+    a:hover {
+
+        color: $black;
+        background-color: rgb(243, 160, 34, .3);
+        border-top: 2px solid $gold;
+        padding-top: 2px;
+
+        box-sizing: border-box;
+        transition: .15s;
+    }
+
+    .active__objects__btn,
+    a:focus {
+        background-color: rgb(243, 160, 34, .3);
+        color: $black;
+    }
+
+    a:active {
+        background-color: rgb(243, 160, 34, .7);
+        transition: .35s;
+    }
+
+
+    a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: .7s;
+    }
+
+    a::before {
+        background: linear-gradient(90deg, transparent, $white, transparent);
+    }
+
+    a:focus::before {
+        left: 100%;
+    }
+
+}
+
+
+
+.objects__btn:not(:last-child):not(:first-child) {
+    margin-right: 30px;
+}
+
+.about__btn {
+    margin-right: 140px;
+}
+
+.objects__inner {
+
+    margin-top: 25px;
+}
+
+.about__company {
+    display: flex;
+    justify-content: center;
+
+    p {
+        line-height: 1.1;
+        font-size: .9rem;
+    }
+
+    .left-aside {
+        flex: 0 0 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        text-align: justify;
+
+        & img {
+            margin-bottom: 10px;
+        }
+
+        p:first-of-type {
+            color: $black;
+            width: 90%;
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .osnovatel {
+            color: $black;
+            width: 70%;
+            text-align: center;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+    }
+
+    .center-aside {
+        flex: 0 0 30%;
+        margin-right: 20px;
+        text-align: justify;
+    }
+
+    .right-aside {
+        flex: 0 0 30%;
+        text-align: justify;
+    }
+}

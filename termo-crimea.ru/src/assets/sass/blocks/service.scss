@@ -1,6 +1,8 @@
 .service {
 
     &__container {
+        height: 100vh;
+
         width: 70%;
         text-align: center;
 
@@ -153,6 +155,7 @@
                     background-color: rgb(243, 160, 34, .3);
                     transition: .2s;
                 }
+
                 &:active {
                     background-color: rgb(243, 160, 34, .7);
                     transition: .2s;
