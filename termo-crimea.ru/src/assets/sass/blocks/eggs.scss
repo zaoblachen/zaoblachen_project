@@ -1,12 +1,21 @@
+.eggs__container {
+    max-width: 100%;
+    background-color: #cecece;
+}
+
 .eggs__content {
-    //display: flex;
+
 }
 
 .eggs {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+
+
     color: $black;
+
 
     &__content {
         max-width: 80%;
@@ -19,6 +28,8 @@
     padding: 15px;
     margin: 25px 20px;
     max-width: 140px;
+
+    background-color: $white;
 
     -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);

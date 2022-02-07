@@ -193,34 +193,33 @@ h6 {
     align-items: center;
     justify-content: space-between;
     box-sizing: content-box;
-    padding: 10px 0 0;
     margin: 0 auto;
 }
 
-.menu a {
+.nav .menu__link__btn {
     display: inline-block;
     position: relative;
     z-index: 5;
     overflow: hidden;
     cursor: pointer;
-    padding: 3px 3px;
-    margin: 2px 5px;
+    padding: 5px 7px;
+    margin: 0 6px;
     border-radius: 2px;
     color: #fff;
     font-size: 0.9rem;
     transition: 0.7s;
 }
 
-.menu a:hover {
+.nav .menu__link__btn:hover {
     color: #fff;
 }
 
-.menu a:focus {
+.nav .menu__link__btn:focus {
     background-color: #4973ff;
     color: #000;
 }
 
-.menu a::before {
+.nav .menu__link__btn::before {
     content: "";
     position: absolute;
     top: 0;
@@ -230,49 +229,21 @@ h6 {
     transition: 0.7s;
 }
 
-.menu a::before {
+.nav .menu__link__btn::before {
     background: linear-gradient(-45deg, transparent, #fff, transparent);
 }
 
-.menu a:hover::before {
+.nav .menu__link__btn:hover::before {
     left: 100%;
 }
 
-.email a {
-    font-size: 0.9rem;
-    color: white;
-    position: relative;
-    cursor: pointer;
-    text-decoration: none;
-  /*убираем подчёркивание*/
-}
-
-.email a:after {
-    display: block;
-    position: absolute;
-    left: 0;
-  /*изменить на right:0;, чтобы изменить направление подчёркивания */
-    width: 0;
-  /*задаём длинну линии до наведения курсора*/
-    height: 2px;
-  /*задаём ширину линии*/
-    background-color: #4973ff;
-  /*задаём цвет линии*/
-    content: "";
-    transition: width 0.3s ease-out;
-  /*задаём время анимации*/
-    margin-top: 2px;
-}
-
-.email a:hover:after,
-.email a:focus:after {
-    width: 100%;
-  /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
-    margin-top: 2px;
+.nav .menu__link__btn:last-child {
+    margin-left: 100px;
 }
 
 .phone__link {
     display: block;
+    font-size: 1.3rem;
     cursor: default;
     padding: 5px 0;
     color: #fff;
@@ -455,6 +426,11 @@ h6 {
     }
 }
 
+.eggs__container {
+    max-width: 100%;
+    background-color: #cecece;
+}
+
 .eggs {
     display: flex;
     flex-wrap: wrap;
@@ -472,6 +448,7 @@ h6 {
     padding: 15px;
     margin: 25px 20px;
     max-width: 140px;
+    background-color: #fff;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
@@ -522,11 +499,53 @@ h6 {
     overflow: hidden;
     border-width: 0;
     border-radius: 0;
-    padding: 10px;
+    background-color: #fcf7eb;
+    padding: 7px 10px;
     margin: 0 5px 5px;
     font-size: 1.1rem;
     text-align: left;
     color: #778899;
+}
+
+.service-block-left button:last-child {
+    margin-top: 10px;
+    background-color: #f2f3fd;
+}
+
+.service-block-left button:last-child:hover {
+    color: #000;
+    border-left: 5px solid #4973ff;
+    transition: 0.5s;
+}
+
+.service-block-left button:last-child.active,
+.service-block-left button:last-child:focus {
+    background-color: rgba(34, 38, 243, 0.3);
+    color: #000;
+    border-left: 5px solid #4973ff;
+}
+
+.service-block-left button:last-child:active {
+    background-color: rgba(34, 38, 243, 0.7);
+    transition: 0.35s;
+}
+
+.service-block-left button:last-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: 0.7s;
+}
+
+.service-block-left button:last-child::before {
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+.service-block-left button:last-child:focus::before {
+    left: 100%;
 }
 
 .service-block-left button:hover {
@@ -574,12 +593,11 @@ h6 {
     width: 100%;
     padding: 10px;
     margin-bottom: 5px;
-    right: 200%;
+    right: 10%;
     position: absolute;
     overflow: hidden;
-    opacity: 0.5;
-    transform: scale(0.9);
-    transition: opacity 0.5s ease-in-out 0ms, transform 0.5s ease-in-out 0ms;
+    opacity: 0;
+    transition: right 0.15s ease 0s, opacity 0.2s ease 0s;
 }
 
 .service-block-right > div h5 {
@@ -621,54 +639,120 @@ h6 {
     z-index: 5;
     right: 0;
     opacity: 1;
-    transform: scale(1);
 }
 
+.slider-list {
+    overflow: hidden;
+}
+
+.slick-track {
+    display: flex;
+}
+
+.slider {
+    padding: 0 50px;
+}
+
+.slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    z-index: 50;
+    font-size: 0;
+    width: 40px;
+    height: 80px;
+}
+
+.slider .slick-arrow.slick-prev {
+    left: 0;
+    background: url("../../img/prev.png") 0 0/100% no-repeat;
+}
+
+.slider .slick-arrow.slick-next {
+    right: 0;
+    background: url("../../img/next.png") 0 0/100% no-repeat;
+}
+
+.slider .slick-arrow.slick-next.slick-disabled {
+    opacity: 0.3;
+}
+
+.slider .slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: center;
+}
+
+.slider .slick-dots li {
+    list-style: none;
+}
+
+.slider .slick-dots button {
+    font-size: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #f3a022;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.slider .slick-dots li.slick-active button {
+    background-color: #4973ff;
+}
+
+/* .slider__item {
+    text-align: center;
+    opacity: .4;
+
+    transition: opacity .3s ease 0;
+}
+
+.slider__item.slick-center {
+    opacity: 1;
+
+} */
 .objects__content {
-    height: 100vh;
+    height: 650px;
     margin: 0 auto;
 }
 
 .objects__slider {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.objects__slider a {
-    display: inline-block;
+.objects__slider button {
+    height: 100%;
     position: relative;
     z-index: 5;
     overflow: hidden;
-    cursor: pointer;
-    height: 100%;
+    border-width: 0;
+    border-radius: 0;
     padding: 5px 15px;
-    background-color: rgba(183, 156, 218, 0.2);
     color: #778899;
-    transition: 0.7s;
 }
 
-.objects__slider a:hover {
+.objects__slider button:hover {
     color: #000;
-    background-color: rgba(243, 160, 34, 0.3);
     border-top: 2px solid #f3a022;
-    padding-top: 2px;
-    box-sizing: border-box;
     transition: 0.15s;
 }
 
-.objects__slider .active__objects__btn,
-.objects__slider a:focus {
+.objects__slider .active__btn,
+.objects__slider button:focus {
     background-color: rgba(243, 160, 34, 0.3);
     color: #000;
+    border-top: 2px solid #f3a022;
 }
 
-.objects__slider a:active {
+.objects__slider button:active {
     background-color: rgba(243, 160, 34, 0.7);
-    transition: 0.35s;
+    transition: 0.15s;
 }
 
-.objects__slider a::before {
+.objects__slider button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -678,51 +762,68 @@ h6 {
     transition: 0.7s;
 }
 
-.objects__slider a::before {
+.objects__slider button::before {
     background: linear-gradient(90deg, transparent, #fff, transparent);
 }
 
-.objects__slider a:focus::before {
+.objects__slider button:focus::before {
     left: 100%;
 }
 
 .objects__btn:not(:last-child):not(:first-child) {
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
-.about__btn {
-    margin-right: 140px;
+.objects__btn:first-child {
+    margin-right: 100px;
 }
 
 .objects__inner {
-    margin-top: 25px;
+    margin: 30px 0;
 }
 
-.about__company {
+.objects__inner .objects__tab {
+    bottom: 35px;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(1);
+    transition: bottom 0.15s ease 0s, opacity 0.1s ease 0s;
+}
+
+.objects__inner .active__tab {
+    position: relative;
+    z-index: 10;
+    bottom: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.objects__inner .objects__tab:first-of-type {
     display: flex;
     justify-content: center;
 }
 
-.about__company p {
+.objects__inner .objects__tab:first-of-type p {
     line-height: 1.1;
     font-size: 0.9rem;
 }
 
-.about__company .left-aside {
-    flex: 0 0 30%;
+.objects__inner .objects__tab:first-of-type .left-aside {
+    flex: 0 0 27%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-right: 20px;
+    justify-content: flex-end;
+    margin-right: 40px;
     text-align: justify;
 }
 
-.about__company .left-aside img {
+.objects__inner .objects__tab:first-of-type .left-aside img {
     margin-bottom: 10px;
 }
 
-.about__company .left-aside p:first-of-type {
+.objects__inner .objects__tab:first-of-type .left-aside p:first-of-type {
     color: #000;
     width: 90%;
     text-align: center;
@@ -730,23 +831,75 @@ h6 {
     margin-bottom: 5px;
 }
 
-.about__company .left-aside .osnovatel {
+.objects__inner .objects__tab:first-of-type .left-aside .osnovatel {
     color: #000;
-    width: 70%;
+    width: 80%;
     text-align: center;
     font-size: 1.05rem;
     margin-bottom: 25px;
 }
 
-.about__company .center-aside {
-    flex: 0 0 30%;
-    margin-right: 20px;
+.objects__inner .objects__tab:first-of-type .center-aside {
+    flex: 0 0 27%;
+    margin-right: 40px;
     text-align: justify;
 }
 
-.about__company .right-aside {
-    flex: 0 0 30%;
+.objects__inner .objects__tab:first-of-type .right-aside {
+    flex: 0 0 27%;
     text-align: justify;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) {
+    display: flex;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table {
+    width: 91%;
+    margin: 0 auto;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table thead th {
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    background: #d8d8d8;
+    font-size: 14px;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table thead tr th:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table thead tr th:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table tbody td {
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table tbody tr:nth-child(even) {
+    background: #f3f3f3;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table tbody tr th {
+    font-weight: 500;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table tbody tr td:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.objects__inner .objects__tab:not(:first-of-type) table tbody tr td:last-child {
+    border-radius: 0 8px 8px 0;
 }
 
 .contacts__container {
@@ -796,15 +949,19 @@ h4 {
     margin-left: 75px;
 }
 
+/* .email .details {
+  display: block;
+} */
 .details {
-    margin-bottom: 8px;
+    display: block;
+    margin-bottom: 18px;
     text-align: center;
 }
 
 .details i {
     font-size: 15px;
     color: #3e2093;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .topic {
@@ -813,6 +970,40 @@ h4 {
     margin-bottom: 7px;
     color: #000;
     line-height: 130%;
+}
+
+.topic a {
+    color: #000;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+  /*убираем подчёркивание*/
+    padding: 3px 0px;
+    margin-left: 3px;
+}
+
+.topic a:after {
+    display: block;
+    position: absolute;
+    left: 0;
+  /*изменить на right:0;, чтобы изменить направление подчёркивания */
+    width: 0;
+  /*задаём длинну линии до наведения курсора*/
+    height: 2px;
+  /*задаём ширину линии*/
+    background-color: #4973ff;
+  /*задаём цвет линии*/
+    content: "";
+    transition: width 0.3s ease-out;
+  /*задаём время анимации*/
+    margin-top: 2px;
+}
+
+.topic a:hover:after,
+.topic a:focus:after {
+    width: 100%;
+  /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+    margin-top: 2px;
 }
 
 .right-side p {

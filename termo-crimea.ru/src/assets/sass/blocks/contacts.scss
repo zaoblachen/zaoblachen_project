@@ -51,16 +51,21 @@ h4 {
   width: 55%;
   margin-left: 75px;
 }
+/* .email .details {
+  display: block;
+} */
 
 .details {
-  margin-bottom: 8px;
+  display: block;
+  margin-bottom: 18px;
   text-align: center;
 }
 
 .details i {
+
   font-size: 15px;
   color: #3e2093;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .topic {
@@ -69,6 +74,42 @@ h4 {
   margin-bottom: 7px;
   color: $black;
   line-height: 130%;
+
+  a {
+    color: $black;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    /*убираем подчёркивание*/
+    padding: 3px 0px;
+    margin-left: 3px;
+
+}
+
+a:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    /*изменить на right:0;, чтобы изменить направление подчёркивания */
+    width: 0;
+    /*задаём длинну линии до наведения курсора*/
+    height: 2px;
+    /*задаём ширину линии*/
+    background-color: $blue;
+    /*задаём цвет линии*/
+    content: "";
+    transition: width 0.3s ease-out;
+    /*задаём время анимации*/
+    margin-top: 2px; // задаем отступ линии от текста (вниз)
+
+}
+
+a:hover:after,
+a:focus:after {
+    width: 100%;
+    /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+    margin-top: 2px; // задаем отступ линии от текста (вниз)
+}
 }
 
 .right-side p {

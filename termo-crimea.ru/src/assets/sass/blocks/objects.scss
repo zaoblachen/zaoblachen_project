@@ -1,5 +1,5 @@
 .objects__content {
-    height: 100vh;
+    height: 650px;
     margin: 0 auto;
 }
 
@@ -7,51 +7,45 @@
     display: flex;
     justify-content: center;
 
-    margin-top: 20px;
+    margin-bottom: 20px;
 
+    button {
 
-
-    a {
-        display: inline-block;
+        height: 100%;
         position: relative;
         z-index: 5;
         overflow: hidden;
-        cursor: pointer;
 
-        height: 100%;
+        border-width: 0;
+        border-radius: 0;
 
         padding: 5px 15px;
-        background-color: rgb(183, 156, 218, .2);
-
         color: $grey;
-
-        transition: .7s;
     }
 
-    a:hover {
+    button:hover {
+
 
         color: $black;
-        background-color: rgb(243, 160, 34, .3);
         border-top: 2px solid $gold;
-        padding-top: 2px;
 
-        box-sizing: border-box;
         transition: .15s;
     }
 
-    .active__objects__btn,
-    a:focus {
+    .active__btn,
+    button:focus {
         background-color: rgb(243, 160, 34, .3);
         color: $black;
+        border-top: 2px solid $gold;
     }
 
-    a:active {
+    button:active {
         background-color: rgb(243, 160, 34, .7);
-        transition: .35s;
+        transition: .15s;
     }
 
 
-    a::before {
+    button::before {
         content: '';
         position: absolute;
         top: 0;
@@ -61,79 +55,155 @@
         transition: .7s;
     }
 
-    a::before {
+    button::before {
         background: linear-gradient(90deg, transparent, $white, transparent);
     }
 
-    a:focus::before {
+    button:focus::before {
         left: 100%;
     }
 
 }
 
-
-
 .objects__btn:not(:last-child):not(:first-child) {
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
-.about__btn {
-    margin-right: 140px;
+.objects__btn:first-child {
+    margin-right: 100px;
 }
 
 .objects__inner {
 
-    margin-top: 25px;
-}
+    margin: 30px 0;
 
-.about__company {
-    display: flex;
-    justify-content: center;
 
-    p {
-        line-height: 1.1;
-        font-size: .9rem;
+    .objects__tab {
+
+        bottom: 35px;
+        position: absolute;
+
+        overflow: hidden;
+
+        opacity: 0;
+        transform: scale(1);
+        transition: bottom .15s ease 0s,
+            opacity .1s ease 0s;
+
     }
 
-    .left-aside {
-        flex: 0 0 30%;
+    .active__tab {
+        position: relative;
+        z-index: 10;
+        bottom: 0;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .objects__tab:first-of-type {
+
         display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
-        margin-right: 20px;
-        text-align: justify;
 
-        & img {
-            margin-bottom: 10px;
+        p {
+            line-height: 1.1;
+            font-size: .9rem;
         }
 
-        p:first-of-type {
-            color: $black;
-            width: 90%;
-            text-align: center;
-            font-size: 1.3rem;
-            margin-bottom: 5px;
+        .left-aside {
+            flex: 0 0 27%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 40px;
+            text-align: justify;
+
+            & img {
+                margin-bottom: 10px;
+            }
+
+            p:first-of-type {
+                color: $black;
+                width: 90%;
+                text-align: center;
+                font-size: 1.3rem;
+                margin-bottom: 5px;
+            }
+
+            .osnovatel {
+                color: $black;
+                width: 80%;
+                text-align: center;
+                font-size: 1.05rem;
+                margin-bottom: 25px;
+            }
+
         }
 
-        .osnovatel {
-            color: $black;
-            width: 70%;
-            text-align: center;
-            font-size: 1.05rem;
-            margin-bottom: 25px;
+        .center-aside {
+            flex: 0 0 27%;
+            margin-right: 40px;
+            text-align: justify;
+        }
+
+        .right-aside {
+            flex: 0 0 27%;
+            text-align: justify;
+        }
+    }
+
+    .objects__tab:not(:first-of-type) {
+
+        display: flex;
+
+        table {
+            width: 91%;
+            margin: 0 auto;
+            border: none;
+            margin-bottom: 20px;
+        }
+        table thead th {
+            font-weight: bold;
+            text-align: left;
+            border: none;
+            padding: 10px 15px;
+            background: #d8d8d8;
+            font-size: 14px;
+        }
+        table thead tr th:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+
+        table thead tr th:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+
+        table tbody td {
+            text-align: left;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            line-height: 1.3;
+            //vertical-align: top;
+        }
+        table tbody tr:nth-child(even){
+            background: #f3f3f3;
+        }
+
+        table tbody tr th {
+            font-weight: 500;
+        }
+
+        table tbody tr td:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+        table tbody tr td:last-child {
+            border-radius: 0 8px 8px 0;
         }
 
     }
 
-    .center-aside {
-        flex: 0 0 30%;
-        margin-right: 20px;
-        text-align: justify;
-    }
-
-    .right-aside {
-        flex: 0 0 30%;
-        text-align: justify;
-    }
 }
+
+// 2014 год
