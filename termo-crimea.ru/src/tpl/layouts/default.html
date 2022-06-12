@@ -3,19 +3,19 @@
 
 <head>
     {{> head}}
-    
+
 </head>
 
 <body>
     <div class="wrapper">
         {{> nav}}
-        {{> main}}
-        {{> action}}
+        {{> main}} 
         {{> eggs}}
         {{> service}}
         {{> grade}}
-        {{> objects}}
         {{> contacts}}
+        {{> objects}}
+        {{> map}}
         {{> footer}}
     </div>
 
@@ -25,7 +25,36 @@
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
     <script src="assets/js/app.min.js"></script>
-    
+
+    <script type="text/javascript">
+
+        ymaps.ready(init); 
+        var myMap;
+        
+        function init() {
+        
+            myMap = new ymaps.Map("map", {
+                center: [44.952846, 34.088596], // Координаты центра карты
+                zoom: 17 // Маштаб карты
+            }); 
+        
+            myMap.controls.add(
+                new ymaps.control.ZoomControl()  // Добавление элемента управления картой
+            ); 
+        
+            myPlacemark = new ymaps.Placemark([44.952262, 34.086484], { // Координаты метки объекта
+                balloonContent: "<div class='ya_map'>ООО 'ТЕРМО-КРЫМ'</div>" // Подсказка метки
+            }, {
+                preset: "twirl#redDotIcon" // Тип метки
+            });
+            
+            myMap.geoObjects.add(myPlacemark); // Добавление метки
+            myPlacemark.balloon.open(); // Открытие подсказки метки
+            
+        };
+        
+    </script>
+
     <!-- <script src="assets/js/components/slick.min.js"></script> -->
 
 </body>

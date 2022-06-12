@@ -1,26 +1,63 @@
 .eggs__container {
     max-width: 100%;
-    background-color: #cecece;
+background-color: rgb(235, 239, 245);
 }
 
 .eggs__content {
+
+    max-width: 80%;
+    margin: 0 auto;
+
+    h3 {
+        padding-bottom: 25px;
+    }
+
 
 }
 
 .eggs {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-between;
-
-
-
     color: $black;
 
+    .egg {
+        display: flex;
+        height: 160px;
+        vertical-align: middle;
 
-    &__content {
-        max-width: 80%;
-        margin: 0 auto;
+        p {
+            display: inline-block;
+
+            margin: auto;
+
+            line-height: 1.2;
+
+            text-align: center;
+        }
+
+        a {
+            display: inline-block;
+        }
+
+        .a-bold {
+            font-size: 1.2rem;
+            font-weight: 600;
+
+            color: #4973ff;
+        }
+
+        .a-gold {
+            font-size: 1.2rem;
+            font-weight: 600;
+
+            color: rgb(211, 145, 3);
+        }
     }
+
+
+
+
 }
 
 .egg {
@@ -39,7 +76,7 @@
         padding-bottom: 10px;
 
         color: #4973ff;
-        
+
         font-size: 2.3rem;
         text-align: center;
     }
@@ -47,5 +84,6 @@
     &__subtitle {
         font-size: 1.2rem;
     }
+
     //box-shadow: ;
 }
